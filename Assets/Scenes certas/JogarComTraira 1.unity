@@ -540,7 +540,6 @@ Transform:
   m_Children:
   - {fileID: 1742856424}
   - {fileID: 2011347315}
-  - {fileID: 1577806847}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -849,12 +848,14 @@ MonoBehaviour:
   intervaloSpawnMax: 2
   groundLevel: 10
   distanceEnemyFromPlayer: 10
-  timerRespawnInimigosMax: 2
+  timerRespawnInimigosMax: 4
   player_ref: {fileID: 1340118625946965253}
   InimigoPrefab:
   - {fileID: 2011347309}
   - {fileID: 2011347309}
   - {fileID: 2011347309}
+  camera_ref: {fileID: 0}
+  RedeDePesca: {fileID: 0}
 --- !u!4 &274100606
 Transform:
   m_ObjectHideFlags: 0
@@ -920,6 +921,8 @@ MonoBehaviour:
   - {fileID: 1742856422}
   - {fileID: 1742856422}
   - {fileID: 1742856422}
+  camera_ref: {fileID: 0}
+  RedeDePesca: {fileID: 0}
 --- !u!114 &274100610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,14 +936,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intervaloSpawnMax: 0
-  groundLevel: 9
-  distanceEnemyFromPlayer: 10
-  timerRespawnInimigosMax: 10
+  groundLevel: 10
+  distanceEnemyFromPlayer: 12
+  timerRespawnInimigosMax: 5
   player_ref: {fileID: 1340118625946965253}
   InimigoPrefab:
   - {fileID: 1577806841}
   - {fileID: 1577806841}
   - {fileID: 1577806841}
+  camera_ref: {fileID: 0}
+  RedeDePesca: {fileID: 0}
 --- !u!114 &274100611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3771,12 +3776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618525954fb27cd4eb383f3b006b7acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1577806847 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 423874681461282220}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1604978290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,7 +4855,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 142887400}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 423874680622120533, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
@@ -4868,40 +4867,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: RedeDepesca
       objectReference: {fileID: 0}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: playerMovimentacao_ref
-      value: 
-      objectReference: {fileID: 1340118626260223351}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: velocidadeLentaInicial
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: rede
-      value: 
-      objectReference: {fileID: 1577806843}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: spawnInimigo_ref
-      value: 
-      objectReference: {fileID: 274100609}
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5100002
+      value: -17.59
       objectReference: {fileID: 0}
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10.47
       objectReference: {fileID: 0}
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.79
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
@@ -4926,7 +4905,7 @@ PrefabInstance:
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
@@ -4988,6 +4967,26 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 1.4029365
       objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: playerMovimentacao_ref
+      value: 
+      objectReference: {fileID: 1340118626260223351}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: velocidadeLentaInicial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: rede
+      value: 
+      objectReference: {fileID: 1577806843}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: spawnInimigo_ref
+      value: 
+      objectReference: {fileID: 274100609}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1820dd7859c53b4a9b2d946295a9a8a, type: 3}
 --- !u!1001 &1340118625946965252
@@ -5550,7 +5549,7 @@ PrefabInstance:
     - target: {fileID: 6529201835023719392, guid: 7f0f3df4788a92b409554d43020ae2ee,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6529201835023719422, guid: 7f0f3df4788a92b409554d43020ae2ee,
         type: 3}

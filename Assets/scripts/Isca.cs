@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,5 +15,10 @@ public class Isca : HabilidadesGeraisInimigo
     void Update()
     {
         
+    }
+
+    public static explicit operator Isca(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

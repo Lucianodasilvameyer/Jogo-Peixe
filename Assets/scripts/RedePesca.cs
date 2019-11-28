@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Linq;
 
-public class Rede : MonoBehaviour
+public class RedePesca : MonoBehaviour
 {
+
     [SerializeField]
-    Rede rede;
+    HabilidadesGeraisInimigo rede;
 
     [SerializeField]
     SpawnInimigo spawnInimigo_ref;

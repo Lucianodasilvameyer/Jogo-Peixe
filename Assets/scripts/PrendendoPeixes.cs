@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PrendendoPeixes : MonoBehaviour
 {
-    Rede rede_ref;
+    RedePesca rede_ref;
 
     
 
     private void Awake()
     {
-        rede_ref = GetComponent<Rede>();
+        rede_ref = GetComponent<RedePesca>();
     }
 
     // Start is called before the first frame update
