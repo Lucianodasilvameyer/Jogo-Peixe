@@ -38,10 +38,10 @@ public class SpawnInimigo : MonoBehaviour
     private Transform player_ref; 
 
 
-    public GameObject[] InimigoPrefab;
+    //public GameObject[] InimigoPrefab;
 
 
-    List<HabilidadesGeraisInimigo> ListInimigos = new List<HabilidadesGeraisInimigo>();
+    List<GameObject> ListInimigos = new List<GameObject>();
     
     
     // Start is called before the first frame update
@@ -83,12 +83,12 @@ public class SpawnInimigo : MonoBehaviour
     }
     public void SpawnarInimigos<Y>(int quantidadeIinimigos, float distanceMin, float distanceMax, float heightMax, Vector2 initialPos)
     {
-        if (!typeof(Y).IsSubclassOf(typeof(HabilidadesGeraisInimigo)))
-            return; 
+        //if (!typeof(Y).IsSubclassOf(typeof(GameObject)))
+            //return; 
 
             
             
-                int index = Random.Range(0, InimigoPrefab.Length);//aqui o tamanho do array tem q ser igual a quantidade de inimigos?
+                //int index = Random.Range(0, InimigoPrefab.Length);//aqui o tamanho do array tem q ser igual a quantidade de inimigos?
                 Vector3 position = initialPos;
                 position.x += Random.Range(distanceMin, distanceMax);
                 position.y += Random.Range(0, heightMax);
@@ -106,11 +106,11 @@ public class SpawnInimigo : MonoBehaviour
                            ListInimigos.RemoveAt(possicao);
 
                            I.transform.position = position;
-                           I.SetActive(true);
+                           
 
                        }
                     }
-                    else if (typeof(Y) == typeof(RedePesca))
+                    /*else if (typeof(Y) == typeof(RedePesca))
                     {
                         if (ListInimigos.OfType<RedePesca>().Any())
                         {
@@ -125,7 +125,7 @@ public class SpawnInimigo : MonoBehaviour
                           
                              
                         }
-                    }
+                    }*/
                     else if (typeof(Y) == typeof(Tubarao))
                     {
                          if (ListInimigos.OfType<Tubarao>().Any())
@@ -133,9 +133,11 @@ public class SpawnInimigo : MonoBehaviour
                               int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(Tubarao));
 
                               Tubarao T = (Tubarao)ListInimigos[possicao];
+                              ListInimigos.RemoveAt(possicao);
+
                               T.transform.position = position;
 
-                              T.SetActive(true);  
+                                
                          } 
                     }
                 }
@@ -149,10 +151,10 @@ public class SpawnInimigo : MonoBehaviour
                     {
                         HabilidadesGeraisInimigo Tubarao = Instantiate(tubaraoPrefab, position, Quaternion.identity).GetComponent<Tubarao>();    
                     }
-                    if (typeof(Y) == typeof(RedePesca))
+                    /*if (typeof(Y) == typeof(RedePesca))
                     {
                         HabilidadesGeraisInimigo RedePesca = Instantiate(redeDePescaPrefab, position, Quaternion.identity).GetComponent<RedePesca>();
-                    }
+                    }*/
                 }
                 
 
@@ -160,16 +162,16 @@ public class SpawnInimigo : MonoBehaviour
             
         
     }
-    public void destruirRede(HabilidadesGeraisInimigo rede)
+    public void adicionarOuDestruir(GameObject inimigo)                                         
     {
              
         if (ListInimigos.Count > 0)
         {
-            ListInimigos.Add(rede);
+            ListInimigos.Add(inimigo);
         }
         else
         {
-            Destroy(rede);
+            Destroy(inimigo);
         }
     }
    

@@ -825,8 +825,6 @@ GameObject:
   - component: {fileID: 274100614}
   - component: {fileID: 274100607}
   - component: {fileID: 274100608}
-  - component: {fileID: 274100605}
-  - component: {fileID: 274100610}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -834,27 +832,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &274100605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274100604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0add8452f9efe46a1bb613b4b5df66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intervaloSpawnMax: 2
-  groundLevel: 10
-  distanceEnemyFromPlayer: 10
-  timerRespawnInimigosMax: 2
-  player_ref: {fileID: 1340118625946965253}
-  InimigoPrefab:
-  - {fileID: 2011347309}
-  - {fileID: 2011347309}
-  - {fileID: 2011347309}
 --- !u!4 &274100606
 Transform:
   m_ObjectHideFlags: 0
@@ -910,37 +887,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0add8452f9efe46a1bb613b4b5df66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tubaraoPrefab: {fileID: 1742856422}
+  iscaPrefab: {fileID: 2011347309}
+  redeDePescaPrefab: {fileID: 1577806841}
   intervaloSpawnMax: 2
   groundLevel: 10
   distanceEnemyFromPlayer: 10
   timerRespawnInimigosMax: 1.5
   player_ref: {fileID: 1340118625946965253}
-  InimigoPrefab:
-  - {fileID: 1742856422}
-  - {fileID: 1742856422}
-  - {fileID: 1742856422}
-  - {fileID: 1742856422}
---- !u!114 &274100610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274100604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0add8452f9efe46a1bb613b4b5df66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intervaloSpawnMax: 0
-  groundLevel: 9
-  distanceEnemyFromPlayer: 10
-  timerRespawnInimigosMax: 10
-  player_ref: {fileID: 1340118625946965253}
-  InimigoPrefab:
-  - {fileID: 1577806841}
-  - {fileID: 1577806841}
-  - {fileID: 1577806841}
 --- !u!114 &274100611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,7 +2215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -217, y: 287}
+  m_AnchoredPosition: {x: -214, y: 287}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876514932
@@ -3186,7 +3140,7 @@ PrefabInstance:
     - target: {fileID: 1942662091802212757, guid: 14a22b836ae5e6e4d8e526b3403c8126,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1942662091802212757, guid: 14a22b836ae5e6e4d8e526b3403c8126,
         type: 3}
@@ -3241,7 +3195,7 @@ PrefabInstance:
     - target: {fileID: 1942662091802212756, guid: 14a22b836ae5e6e4d8e526b3403c8126,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a22b836ae5e6e4d8e526b3403c8126, type: 3}
@@ -4868,26 +4822,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: RedeDepesca
       objectReference: {fileID: 0}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+    - target: {fileID: 423874680622120533, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
-      propertyPath: playerMovimentacao_ref
-      value: 
-      objectReference: {fileID: 1340118626260223351}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: velocidadeLentaInicial
-      value: 2
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: rede
-      value: 
-      objectReference: {fileID: 1577806843}
-    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
-        type: 3}
-      propertyPath: spawnInimigo_ref
-      value: 
-      objectReference: {fileID: 274100609}
     - target: {fileID: 423874680622120531, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4943,6 +4882,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: playerMovimentacao_ref
+      value: 
+      objectReference: {fileID: 1340118626260223351}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: velocidadeLentaInicial
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: rede
+      value: 
+      objectReference: {fileID: 7130763391272321890}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: spawnInimigo_ref
+      value: 
+      objectReference: {fileID: 274100609}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: strength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: recuperacao
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: velocidadeLentaMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 423874680622120534, guid: f1820dd7859c53b4a9b2d946295a9a8a,
+        type: 3}
+      propertyPath: Rede
+      value: 
+      objectReference: {fileID: 1577806843}
     - target: {fileID: 423874680622120530, guid: f1820dd7859c53b4a9b2d946295a9a8a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -5629,7 +5608,7 @@ PrefabInstance:
     - target: {fileID: 7130763391869936519, guid: 35b448ffd27f06042b39d7ec9463d22e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7130763391869936521, guid: 35b448ffd27f06042b39d7ec9463d22e,
         type: 3}
@@ -5713,6 +5692,18 @@ PrefabInstance:
       objectReference: {fileID: 1286013352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35b448ffd27f06042b39d7ec9463d22e, type: 3}
+--- !u!114 &7130763391272321890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7130763391869936523, guid: 35b448ffd27f06042b39d7ec9463d22e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130763391272321889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742856422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25535ba0a181324ba45f19dea11dd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8365788417058773345
 PrefabInstance:
   m_ObjectHideFlags: 0

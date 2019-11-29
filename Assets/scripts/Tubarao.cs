@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Tubarao : HabilidadesGeraisInimigo
 {
-   
+    [SerializeField]
+    Tubarao Shark;
+
+    [SerializeField]
+    SpawnInimigo spawnInimigo_ref;
 
     void Start()
     {
@@ -16,8 +20,15 @@ public class Tubarao : HabilidadesGeraisInimigo
     {
         Mover();
     }
-    
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ColisorDeTras"))
+        {
+            spawnInimigo_ref.adicionarOuDestruir(Shark.gameObject);
+        }
+    }
+
+
 }
 
 

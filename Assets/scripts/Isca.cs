@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Isca : HabilidadesGeraisInimigo
 {
+    [SerializeField]
+    Isca IscaDoPeixe;
+
+    [SerializeField]
+    SpawnInimigo spawnInimigo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +22,12 @@ public class Isca : HabilidadesGeraisInimigo
     {
         
     }
-
-    public static explicit operator Isca(GameObject v)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        throw new NotImplementedException();
+        if (collision.gameObject.CompareTag("ColisorDeTras"))
+        {
+            spawnInimigo.adicionarOuDestruir(IscaDoPeixe.gameObject);
+        }
     }
+
 }
