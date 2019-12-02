@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 423874680622120535}
   m_Layer: 0
   m_Name: 'RedeDePesca '
-  m_TagString: Untagged
+  m_TagString: RedeDepesca
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1306782105
   m_SortingLayer: 16
-  m_SortingOrder: 9
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2ea0420d2b0664d4a970169064ec4cb0, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 1
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.75, y: -0.16}
+  m_Offset: {x: 0.09578705, y: -0.17786026}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4352303, y: 2.5945568}
+  m_Size: {x: 2.7676926, y: 3.073801}
   m_EdgeRadius: 0
 --- !u!82 &423874680622120528
 AudioSource:
@@ -129,7 +129,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.0665379
+  MinDistance: 1.4029365
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -217,11 +217,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618525954fb27cd4eb383f3b006b7acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rede: {fileID: 423874680622120534}
+  spawnInimigo_ref: {fileID: 0}
   playerMovimentacao_ref: {fileID: 0}
   strength: 5
   recuperacao: 5
   devagar: 0
-  velocidadeLentaMax: 4
+  velocidadeLentaInicial: 2
+  velocidadeLentaMax: 3
 --- !u!114 &423874680622120535
 MonoBehaviour:
   m_ObjectHideFlags: 0

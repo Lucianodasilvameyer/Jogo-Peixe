@@ -221,6 +221,8 @@ MonoBehaviour:
   strength: 8
   speed: 0
   direction: {x: 0, y: 0}
+  IscaDoPeixe: {fileID: 6529201835023719394}
+  spawnInimigo: {fileID: 0}
 --- !u!114 &6529201835023719395
 MonoBehaviour:
   m_ObjectHideFlags: 0
