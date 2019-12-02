@@ -10,7 +10,7 @@ public class HabilidadesGeraisInimigo : MonoBehaviour
     AudioClip somTomarDano;
 
     [SerializeField]
-    HabilidadesGeraisPlayer habilidadesGeraisPlayer;
+    public HabilidadesGeraisPlayer habilidadesGeraisPlayer;
 
     [SerializeField]
     private float strength; 
@@ -27,8 +27,9 @@ public class HabilidadesGeraisInimigo : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        
         //DefinirAlvo();
     }
 

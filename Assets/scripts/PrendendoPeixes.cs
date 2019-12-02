@@ -24,15 +24,7 @@ public class PrendendoPeixes : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Prendeu");
-            rede_ref.lentidao(collision.GetComponent<Player>());
-
-        }
-    }
+    
   
 
 }

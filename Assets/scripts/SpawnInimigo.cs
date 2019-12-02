@@ -8,6 +8,9 @@ using System.Linq;
 
 public class SpawnInimigo : MonoBehaviour
 {
+    //[SerializeField]
+    //public float distanciaPlayer;
+
     public GameObject tubaraoPrefab;
     public GameObject iscaPrefab;
     public GameObject redeDePescaPrefab;
@@ -61,14 +64,7 @@ public class SpawnInimigo : MonoBehaviour
     
     
     // Start is called before the first frame update
-    void Start()
-    {
-
-
-        
-
-
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -91,7 +87,7 @@ public class SpawnInimigo : MonoBehaviour
             position.x += distanceEnemyFromPlayer;
             position.y = groundLevel;
 
-            SpawnarInimigos<Isca>(1, 2, 5, Random.Range(-24, 14.137f), position);
+            SpawnarInimigos<Isca>(2, 2, 5, Random.Range(-24, 14.137f), position);
         }
         if (Time.time >= spawnarTubaraoInicial + spawnarTubaraoMax)
         {
@@ -102,7 +98,7 @@ public class SpawnInimigo : MonoBehaviour
             position.x += distanceEnemyFromPlayer;
             position.y = groundLevel;
 
-            SpawnarInimigos<Tubarao>(1, 3, 4, Random.Range(-22, 15.137f), position);
+            SpawnarInimigos<Tubarao>(5, 3, 4, Random.Range(-22, 15.137f), position);
         }
         if (Time.time >= spawnarRedePescaInicial + spawnaRedePescaMax)
         {
@@ -112,6 +108,7 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 position = initialPos;
             position.x += distanceEnemyFromPlayer;
             position.y = groundLevel;
+            
 
             SpawnarInimigos<RedePesca>(1, 1, 6, Random.Range(-12, 14.137f), position);
         }
@@ -122,7 +119,7 @@ public class SpawnInimigo : MonoBehaviour
 
             
             
-                //int index = Random.Range(0, InimigoPrefab.Length);//aqui o tamanho do array tem q ser igual a quantidade de inimigos?
+              //int index = Random.Range(0, InimigoPrefab.Length);//aqui o tamanho do array tem q ser igual a quantidade de inimigos?
                 Vector3 position = initialPos;
                 position.x += Random.Range(distanceMin, distanceMax);
                 position.y += Random.Range(0, heightMax);
@@ -138,6 +135,10 @@ public class SpawnInimigo : MonoBehaviour
 
                            GameObject Isca  = ListInimigos[possicao];
                            ListInimigos.RemoveAt(possicao);
+
+                           //position.x += distanciaPlayer;
+                           //position.y = groundLevel;
+
 
                            Isca.transform.position = position;
                            Isca.SetActive(true);
@@ -155,6 +156,9 @@ public class SpawnInimigo : MonoBehaviour
 
                            ListInimigos.RemoveAt(possicao);
 
+                           //position.x += distanciaPlayer;
+                           //position.y = groundLevel;
+
                            RedePesca.transform.position = position;
                            RedePesca.SetActive(true);
                           
@@ -169,6 +173,9 @@ public class SpawnInimigo : MonoBehaviour
 
                               GameObject tubarao = ListInimigos[possicao];
                               ListInimigos.RemoveAt(possicao);
+
+                              //position.x += distanciaPlayer;
+                              //position.y = groundLevel;
 
                               tubarao.transform.position = position;
                               tubarao.SetActive(true);

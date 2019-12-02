@@ -12,9 +12,10 @@ public class Isca : HabilidadesGeraisInimigo
     SpawnInimigo spawnInimigo;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        spawnInimigo = GameObject.Find("Game").GetComponent<SpawnInimigo>();
+        habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
     }
 
     // Update is called once per frame

@@ -10,9 +10,10 @@ public class Tubarao : HabilidadesGeraisInimigo
     [SerializeField]
     SpawnInimigo spawnInimigo_ref;
 
-    void Start()
+    void Awake()
     {
-        //DefinirAlvo();
+        spawnInimigo_ref = GameObject.Find("Game").GetComponent<SpawnInimigo>();
+        habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
     }
 
     // Update is called once per frame

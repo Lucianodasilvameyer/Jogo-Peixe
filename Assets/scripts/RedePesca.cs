@@ -8,6 +8,7 @@ using System.Linq;
 
 public class RedePesca : MonoBehaviour
 {
+    HabilidadesGeraisPlayer habilidadesGeraisPlayer;
 
     [SerializeField]
     RedePesca Rede;
@@ -15,56 +16,38 @@ public class RedePesca : MonoBehaviour
     [SerializeField]
     SpawnInimigo spawnInimigo_ref;
 
-    [SerializeField]
-    PlayerMovimentacao playerMovimentacao_ref;
+    
 
     public float strength;
-    public float recuperacao;
+    
 
-    public bool devagar = false;
+    
 
-    [SerializeField]
-    private float velocidadeLentaInicial;
-
-    [SerializeField]
-    private float velocidadeLentaMax;
+    
 
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        spawnInimigo_ref = GameObject.Find("Game").GetComponent<SpawnInimigo>();
+        habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
+        //playerMovimentacao_ref = GameObject.Find("Traira").GetComponent<PlayerMovimentacao>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(Time.time>= velocidadeLentaInicial+velocidadeLentaMax && devagar == true)
-       {
-
-            devagar = false;
-            playerMovimentacao_ref.speed += (int)recuperacao;
-
-            velocidadeLentaInicial = Time.time;
-
-            
-        } 
+        
     }
-    public void desacelerar(int prender)
-    {
-        playerMovimentacao_ref.speed -= prender;
-        devagar = true;
-    }
-    public void lentidao(Player alvo)
-    {
-        desacelerar((int)strength);
-    }
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("ColisorDetras"))
+        if (collision.gameObject.CompareTag("ColisorDeTras"))
         {
-            spawnInimigo_ref.adicionarOuDestruir(Rede.gameObject);
+            Destroy(gameObject);
+            //spawnInimigo_ref.adicionarOuDestruir(Rede.gameObject);
         }
     }
 
