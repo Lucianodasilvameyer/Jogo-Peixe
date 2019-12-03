@@ -8,8 +8,14 @@ using System.Linq;
 
 public class SpawnInimigo : MonoBehaviour
 {
-    //[SerializeField]
-    //public float distanciaPlayer;
+    [SerializeField]
+    private Transform LinhaDeSpawn;
+
+    //public Transform LineStart,LineEnd;
+    //public bool spawning = false;
+    //public float spawnFrequency = 5f;
+    //private float spawnTimer=0f;
+
 
     public GameObject tubaraoPrefab;
     public GameObject iscaPrefab;
@@ -45,6 +51,8 @@ public class SpawnInimigo : MonoBehaviour
     [SerializeField]
     float groundLevel;
 
+    
+
 
     [SerializeField]
     float distanceEnemyFromPlayer;
@@ -71,7 +79,20 @@ public class SpawnInimigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          /*if (Time.time >= intervaloSpawnInicial + intervaloSpawnMax && intervaloSpawn == 0)
+        /*spawnTimer += Time.deltaTime;
+
+        if(spawnTimer>= spawnFrequency)
+        {
+            spawn();
+            spawnTimer = 0f;
+        }*/
+          
+            
+            
+            
+            
+            
+        /*if (Time.time >= intervaloSpawnInicial + intervaloSpawnMax && intervaloSpawn == 0)
           {
              intervaloSpawn = 1;  
           }
@@ -87,9 +108,16 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 initialPos = player_ref.transform.position;
             Vector2 position = initialPos;
             position.x += distanceEnemyFromPlayer;
-            position.y = groundLevel;
+           
+            Vector2 initialPosLinha = LinhaDeSpawn.transform.position;
+            Vector2 position2 = initialPosLinha;
+            
 
-            SpawnarInimigos<Isca>(2, 2, 5, Random.Range(-24, 14.137f), position);
+
+
+
+
+            SpawnarInimigos<Isca>(2, 2, 5, Random.Range(0, 5), position, position2);
         }
         if (Time.time >= spawnarTubaraoInicial + spawnarTubaraoMax)
         {
@@ -98,9 +126,12 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 initialPos = player_ref.transform.position;
             Vector2 position = initialPos;
             position.x += distanceEnemyFromPlayer;
-            position.y = groundLevel;
+            
+            Vector2 initialPosLinha = LinhaDeSpawn.transform.position;
+            Vector2 position2 = initialPosLinha;
+            
 
-            SpawnarInimigos<Tubarao>(5, 3, 4, Random.Range(-22, 15.137f), position);
+            SpawnarInimigos<Tubarao>(5, 3, 4, Random.Range(0, 5), position, position2);
         }
         if (Time.time >= spawnarRedePescaInicial + spawnaRedePescaMax)
         {
@@ -109,24 +140,30 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 initialPos = player_ref.transform.position;
             Vector2 position = initialPos;
             position.x += distanceEnemyFromPlayer;
-            position.y = groundLevel;
+            
+            Vector2 initialPosLinha = LinhaDeSpawn.transform.position;
+            Vector2 position2 = initialPosLinha;
             
 
-            SpawnarInimigos<RedePesca>(1, 1, 6, Random.Range(-12, 14.137f), position);
+
+
+
+            SpawnarInimigos<RedePesca>(1, 1, 6, Random.Range(0, 5), position, position2);
         }
     }
-    public void SpawnarInimigos<Y>(int quantidadeIinimigos, float distanceMin, float distanceMax, float heightMax, Vector2 initialPos)
+    public void SpawnarInimigos<Y>(int quantidadeIinimigos, float distanceMin, float distanceMax, float heightMax, Vector2 initialPos, Vector2 initialPos2)
     {
        
 
             
             
-              //int index = Random.Range(0, InimigoPrefab.Length);//aqui o tamanho do array tem q ser igual a quantidade de inimigos?
-                Vector3 position = initialPos;
+              
+                Vector2 position = initialPos;
                 position.x += Random.Range(distanceMin, distanceMax);
-                position.y += Random.Range(0, heightMax);
-                position.z = -1f;
-
+                
+                Vector2 position2 = initialPos2;
+                position.y += Random.Range(-6, heightMax);
+              
                 if (ListInimigos.Count > 0)
                 {
                     if (typeof(Y) == typeof(Isca))
@@ -138,8 +175,7 @@ public class SpawnInimigo : MonoBehaviour
                            GameObject Isca  = ListInimigos[possicao];
                            ListInimigos.RemoveAt(possicao);
 
-                           //position.x += distanciaPlayer;
-                           //position.y = groundLevel;
+                          
 
 
                            Isca.transform.position = position;
@@ -158,8 +194,7 @@ public class SpawnInimigo : MonoBehaviour
 
                            ListInimigos.RemoveAt(possicao);
 
-                           //position.x += distanciaPlayer;
-                           //position.y = groundLevel;
+                           
 
                            RedePesca.transform.position = position;
                            RedePesca.SetActive(true);
@@ -176,8 +211,7 @@ public class SpawnInimigo : MonoBehaviour
                               GameObject tubarao = ListInimigos[possicao];
                               ListInimigos.RemoveAt(possicao);
 
-                              //position.x += distanciaPlayer;
-                              //position.y = groundLevel;
+                              
 
                               tubarao.transform.position = position;
                               tubarao.SetActive(true);
@@ -218,6 +252,13 @@ public class SpawnInimigo : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /*private void spawn()
+    {
+        float xrange = LineEnd.position.x - LineStart.position.x;
+        float yrange = LineEnd.position.y - LineStart.position.y;
+
+        Vector2 spawnLocation = new Vector2(LineStart.position.x + (xrange * UnityEngine.Random.value), LineStart.position.y + (yrange * UnityEngine.Random.value));
+    }*/
   
    
 

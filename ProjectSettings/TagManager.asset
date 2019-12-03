@@ -105,3 +105,6 @@ TagManager:
   - name: redes
     uniqueID: 958778889
     locked: 0
+  - name: LinhaDeSpawn
+    uniqueID: 3579098891
+    locked: 0
