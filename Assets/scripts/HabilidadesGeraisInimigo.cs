@@ -10,13 +10,12 @@ public class HabilidadesGeraisInimigo : MonoBehaviour
     AudioClip somTomarDano;
 
     [SerializeField]
-    public HabilidadesGeraisPlayer habilidadesGeraisPlayer;
+    HabilidadesGeraisPlayer habilidadesGeraisPlayer_ref;
 
-    [SerializeField]
-    private float strength; 
+    
+    public float strength; 
 
-    //[SerializeField]
-    //private Transform target;
+    
 
     [SerializeField]
     float speed;
@@ -29,7 +28,7 @@ public class HabilidadesGeraisInimigo : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+        habilidadesGeraisPlayer_ref = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>(); 
         //DefinirAlvo();
     }
 
@@ -71,7 +70,7 @@ public class HabilidadesGeraisInimigo : MonoBehaviour
 
     public void CausarDano(Player alvo)
     {
-        habilidadesGeraisPlayer.TomarDano((int)strength);
+        habilidadesGeraisPlayer_ref.TomarDano((int)strength);
 
 
     }

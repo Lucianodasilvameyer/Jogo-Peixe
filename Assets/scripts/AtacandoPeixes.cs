@@ -5,16 +5,14 @@ using UnityEngine;
 public class AtacandoPeixes : MonoBehaviour
 {
     
+    HabilidadesGeraisInimigo habilidadesGeraisInimigo;
     
-    [SerializeField]
-    HabilidadesGeraisInimigo habilidadesGeraisInimigo_ref;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
+        habilidadesGeraisInimigo = GetComponent<HabilidadesGeraisInimigo>();    }
 
     // Update is called once per frame
     void Update()
@@ -27,7 +25,7 @@ public class AtacandoPeixes : MonoBehaviour
         {
 
             Debug.Log("acertou");
-            habilidadesGeraisInimigo_ref.CausarDano(collision.GetComponent<Player>());
+            habilidadesGeraisInimigo.CausarDano(collision.GetComponent<Player>());
 
             /*var Player = collision.gameObject.GetComponent<Player>();
 

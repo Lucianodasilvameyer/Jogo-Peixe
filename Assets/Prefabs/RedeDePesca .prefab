@@ -219,12 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rede: {fileID: 423874680622120534}
   spawnInimigo_ref: {fileID: 0}
-  playerMovimentacao_ref: {fileID: 0}
-  strength: 5
-  recuperacao: 5
-  devagar: 0
-  velocidadeLentaInicial: 0
-  velocidadeLentaMax: 3
 --- !u!114 &423874680622120535
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlowPlayer : MonoBehaviour
 {
 
-    [SerializeField]
+    
     PlayerMovimentacao playerMovimentacao_ref;
 
     public bool devagar = false;
@@ -21,6 +21,11 @@ public class SlowPlayer : MonoBehaviour
     public int perder;
 
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        playerMovimentacao_ref = GetComponent<PlayerMovimentacao>();   
+    }
     void Start()
     {
         
@@ -48,10 +53,12 @@ public class SlowPlayer : MonoBehaviour
 
     public void lentidao()
     {
-        if (devagar == false)
-        {
-            desacelerar(perder);
-        }
+
+        desacelerar(perder);
+        //if (devagar == false)
+        //{
+
+        //}
 
     }
 

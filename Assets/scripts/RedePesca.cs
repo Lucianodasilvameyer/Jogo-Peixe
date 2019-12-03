@@ -8,7 +8,7 @@ using System.Linq;
 
 public class RedePesca : MonoBehaviour
 {
-    HabilidadesGeraisPlayer habilidadesGeraisPlayer;
+   
 
     [SerializeField]
     RedePesca Rede;
@@ -18,7 +18,6 @@ public class RedePesca : MonoBehaviour
 
     
 
-    public float strength;
     
 
     
@@ -30,9 +29,8 @@ public class RedePesca : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+
         spawnInimigo_ref = GameObject.Find("Game").GetComponent<SpawnInimigo>();
-        habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
-        //playerMovimentacao_ref = GameObject.Find("Traira").GetComponent<PlayerMovimentacao>();
     }
 
     // Update is called once per frame
@@ -46,8 +44,8 @@ public class RedePesca : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ColisorDeTras"))
         {
-            Destroy(gameObject);
-            //spawnInimigo_ref.adicionarOuDestruir(Rede.gameObject);
+            //Destroy(gameObject);
+            spawnInimigo_ref.adicionarOuDestruir(Rede.gameObject);
         }
     }
 

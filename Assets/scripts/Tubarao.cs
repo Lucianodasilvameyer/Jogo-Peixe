@@ -13,7 +13,9 @@ public class Tubarao : HabilidadesGeraisInimigo
     void Awake()
     {
         spawnInimigo_ref = GameObject.Find("Game").GetComponent<SpawnInimigo>();
-        habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
+
+        //habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
+        
     }
 
     // Update is called once per frame
