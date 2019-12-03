@@ -660,9 +660,10 @@ MonoBehaviour:
   spawnarIscaMax: 3
   spawnarTubaraoMax: 2
   spawnaRedePescaMax: 6
-  groundLevel: 10
-  distanceEnemyFromPlayer: 10
+  groundLevel: 4
+  distanceEnemyFromPlayer: 5
   player_ref: {fileID: 1340118625946965253}
+  Camera: {fileID: 0}
 --- !u!4 &274100606
 Transform:
   m_ObjectHideFlags: 0

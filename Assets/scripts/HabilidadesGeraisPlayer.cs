@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HabilidadesGeraisPlayer : MonoBehaviour
+public class HabilidadesGeraisPlayer : MonoBehaviour  //, IDamage
 {
     [SerializeField]
     AudioSource audioSource;
-
-    
 
     [SerializeField]
     AudioClip somCausarDano;
@@ -44,6 +42,9 @@ public class HabilidadesGeraisPlayer : MonoBehaviour
         audioSource.clip = Som;
         audioSource.Play();
     }
-    
 
+    public void Damage(int dano)
+    {
+        interface_ref.HP -= dano;
+    }
 }

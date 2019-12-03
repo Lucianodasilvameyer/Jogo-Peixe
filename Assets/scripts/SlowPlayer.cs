@@ -37,17 +37,16 @@ public class SlowPlayer : MonoBehaviour
         if (devagar)
         {
             velocidadeLentaInicial += Time.deltaTime;
-        }
-
-        if (velocidadeLentaInicial >= velocidadeLentaMax && devagar == true)
-        {
-
-            devagar = false;
-            playerMovimentacao_ref.speed += recuperacao;
-
-            velocidadeLentaInicial = 0;
 
 
+            if (velocidadeLentaInicial >= velocidadeLentaMax)
+            {
+
+                devagar = false;
+                playerMovimentacao_ref.speed += recuperacao;
+
+                velocidadeLentaInicial = 0;
+            }
         }
     }
 

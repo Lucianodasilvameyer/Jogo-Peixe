@@ -54,8 +54,10 @@ public class SpawnInimigo : MonoBehaviour
     //[SerializeField]
     //private float timerRespawnInimigosMax;
     [SerializeField]
-    private Transform player_ref; 
+    private Transform player_ref;
 
+    [SerializeField]
+    private Transform Camera;
 
     //public GameObject[] InimigoPrefab;
 
@@ -216,7 +218,7 @@ public class SpawnInimigo : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+  
    
 
 

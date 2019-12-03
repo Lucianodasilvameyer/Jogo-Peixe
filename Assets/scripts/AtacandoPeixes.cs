@@ -6,13 +6,16 @@ public class AtacandoPeixes : MonoBehaviour
 {
     
     HabilidadesGeraisInimigo habilidadesGeraisInimigo;
-    
+    HabilidadesGeraisPlayer HGP_ref;
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        habilidadesGeraisInimigo = GetComponent<HabilidadesGeraisInimigo>();    }
+        habilidadesGeraisInimigo = GetComponent<HabilidadesGeraisInimigo>();
+
+        HGP_ref = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,7 +28,10 @@ public class AtacandoPeixes : MonoBehaviour
         {
 
             Debug.Log("acertou");
-            habilidadesGeraisInimigo.CausarDano(collision.GetComponent<Player>());
+
+            HGP_ref.Damage(habilidadesGeraisInimigo.strength);
+
+            //habilidadesGeraisInimigo.CausarDano(collision.GetComponent<Player>());
 
             /*var Player = collision.gameObject.GetComponent<Player>();
 

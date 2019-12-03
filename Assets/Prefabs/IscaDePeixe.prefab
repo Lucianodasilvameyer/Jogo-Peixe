@@ -217,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3c5ac5f764d3a4184b1bfdbd02f26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  habilidadesGeraisPlayer_ref: {fileID: 0}
   strength: 8
   speed: 0
   direction: {x: 0, y: 0}
