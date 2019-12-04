@@ -6,6 +6,8 @@ public class AtacandoPeixes : MonoBehaviour
 {
     
     HabilidadesGeraisInimigo habilidadesGeraisInimigo;
+
+    [SerializeField]
     HabilidadesGeraisPlayer HGP_ref;
 
 

@@ -108,3 +108,6 @@ TagManager:
   - name: LinhaDeSpawn
     uniqueID: 3579098891
     locked: 0
+  - name: Bolhas
+    uniqueID: 889215681
+    locked: 0

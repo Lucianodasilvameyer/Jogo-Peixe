@@ -34,22 +34,38 @@ public class SpawnInimigo : MonoBehaviour
     private float spawnarRedePescaInicial;
 
     [SerializeField]
-    private float spawnaRedePescaMax;
+    private float spawnarRedePescaMax;
 
 
 
-    //private float intervaloSpawn=0;
+    private float IscaIntervaloSpawn=0;
 
 
-    //private float intervaloSpawnInicial;
-
-    //[SerializeField]
-    //private float intervaloSpawnMax;
-
-
+    private float IscaIntervaloSpawnInicial;
 
     [SerializeField]
-    float groundLevel;
+    private float IscaIntervaloSpawnMax;
+
+
+    private float TubaraoIntervaloSpawn = 0;
+
+
+    private float TubaraoIntervaloSpawnInicial;
+
+    [SerializeField]
+    private float TubaraoIntervaloSpawnMax;
+
+    private float RedePescaIntervaloSpawn = 0;
+
+
+    private float RedePescaIntervaloSpawnInicial;
+
+    [SerializeField]
+    private float RedePescaIntervaloSpawnMax;
+
+
+    //[SerializeField]
+    //float groundLevel;
 
     
 
@@ -91,17 +107,14 @@ public class SpawnInimigo : MonoBehaviour
             
             
             
-            
-        /*if (Time.time >= intervaloSpawnInicial + intervaloSpawnMax && intervaloSpawn == 0)
-          {
-             intervaloSpawn = 1;  
-          }
-          if (Time.time >= timerRespawnInimigos + timerRespawnInimigosMax && intervaloSpawn==1)
-          */
-
-            
-
-        if (Time.time >= spawnarIscaInicial + spawnarIscaMax)
+       
+          
+        if(Time.time>= IscaIntervaloSpawnInicial + IscaIntervaloSpawnMax && IscaIntervaloSpawn == 0)
+        {
+            IscaIntervaloSpawnInicial = Time.time;
+            IscaIntervaloSpawn = 1;
+        }
+        if (Time.time >= spawnarIscaInicial + spawnarIscaMax && IscaIntervaloSpawn==1)
         {
             spawnarIscaInicial = Time.time;
 
@@ -111,15 +124,19 @@ public class SpawnInimigo : MonoBehaviour
            
             Vector2 initialPosLinha = LinhaDeSpawn.transform.position;
             Vector2 position2 = initialPosLinha;
+
             
+            SpawnarInimigos<Isca>(2, 6, Random.Range(-1, 5), position, position2);
 
-
-
-
-
-            SpawnarInimigos<Isca>(2, 2, 5, Random.Range(0, 5), position, position2);
+            IscaIntervaloSpawn = 0;
         }
-        if (Time.time >= spawnarTubaraoInicial + spawnarTubaraoMax)
+
+        if (Time.time >= TubaraoIntervaloSpawnInicial + TubaraoIntervaloSpawnMax && TubaraoIntervaloSpawn == 0)
+        {
+            TubaraoIntervaloSpawnInicial = Time.time;
+            TubaraoIntervaloSpawn = 1;
+        }
+        if (Time.time >= spawnarTubaraoInicial + spawnarTubaraoMax && TubaraoIntervaloSpawn==1)
         {
             spawnarTubaraoInicial = Time.time;
 
@@ -131,9 +148,17 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 position2 = initialPosLinha;
             
 
-            SpawnarInimigos<Tubarao>(5, 3, 4, Random.Range(0, 5), position, position2);
+            SpawnarInimigos<Tubarao>(5, 6, Random.Range(-1, 5), position, position2);
+
+            TubaraoIntervaloSpawn = 0;
         }
-        if (Time.time >= spawnarRedePescaInicial + spawnaRedePescaMax)
+
+        if(Time.time>= RedePescaIntervaloSpawnInicial+RedePescaIntervaloSpawnMax && RedePescaIntervaloSpawn == 0)
+        {
+            RedePescaIntervaloSpawnInicial = Time.time;
+            RedePescaIntervaloSpawn = 1;
+        }
+        if (Time.time >= spawnarRedePescaInicial + spawnarRedePescaMax && RedePescaIntervaloSpawn==1)
         {
             spawnarRedePescaInicial = Time.time;
 
@@ -148,10 +173,12 @@ public class SpawnInimigo : MonoBehaviour
 
 
 
-            SpawnarInimigos<RedePesca>(1, 1, 6, Random.Range(0, 5), position, position2);
+            SpawnarInimigos<RedePesca>(2, 6, Random.Range(-1, 5), position, position2);
+
+            RedePescaIntervaloSpawn = 0;
         }
     }
-    public void SpawnarInimigos<Y>(int quantidadeIinimigos, float distanceMin, float distanceMax, float heightMax, Vector2 initialPos, Vector2 initialPos2)
+    public void SpawnarInimigos<Y>(int quantidadeIinimigos, float distanceMax, float heightMax, Vector2 initialPos, Vector2 initialPos2)
     {
        
 
@@ -159,10 +186,11 @@ public class SpawnInimigo : MonoBehaviour
             
               
                 Vector2 position = initialPos;
-                position.x += Random.Range(distanceMin, distanceMax);
-                
+                position.x += distanceMax;                                                           //Random.Range(distanceMin, distanceMax);
+
+
                 Vector2 position2 = initialPos2;
-                position.y += Random.Range(-6, heightMax);
+                position.y += Random.Range(-1,5);
               
                 if (ListInimigos.Count > 0)
                 {

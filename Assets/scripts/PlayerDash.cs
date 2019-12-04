@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    SpawnarBolhas spawnarBolhas;
+
+    Vector2 cima;
+
     Rigidbody2D righ;
     public int dashSpeed;
     public int maxDashes;   //Numero maximo de dashes
@@ -22,6 +26,7 @@ public class PlayerDash : MonoBehaviour
 
     private void Awake()
     {
+        spawnarBolhas = GetComponent<SpawnarBolhas>();
         righ = GetComponent<Rigidbody2D>();
     }
 
@@ -49,6 +54,7 @@ public class PlayerDash : MonoBehaviour
         {
             if(dashes > 0 && dashEnabled)
             {
+                spawnarBolhas.spawnrBolha();
                 Dash(x, y);
             }
         }
