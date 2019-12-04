@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    SpawnarBolhas spawnarBolhas;
+    SpawnarBolhas spawnarBolha;
 
-    Vector2 cima;
 
     Rigidbody2D righ;
     public int dashSpeed;
@@ -26,7 +25,7 @@ public class PlayerDash : MonoBehaviour
 
     private void Awake()
     {
-        spawnarBolhas = GetComponent<SpawnarBolhas>();
+        spawnarBolha = GetComponent<SpawnarBolhas>();
         righ = GetComponent<Rigidbody2D>();
     }
 
@@ -52,9 +51,11 @@ public class PlayerDash : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(dashes > 0 && dashEnabled)
+
+            
+            if (dashes > 0 && dashEnabled)
             {
-                spawnarBolhas.spawnrBolha();
+                
                 Dash(x, y);
             }
         }
@@ -74,6 +75,8 @@ public class PlayerDash : MonoBehaviour
 
         StopCoroutine("DashReload");
         StartCoroutine("DashReload");
+
+        spawnarBolha.SpawnarBolha();
     }
 
     IEnumerator DashReload() //o IEnumerator espera um certo tempo para executar uma coisa
@@ -103,6 +106,7 @@ public class PlayerDash : MonoBehaviour
         }     
 
         Debug.Log("Dashes: " + dashes);
-        Debug.Log("Dash is enabled: " + dashEnabled);        
+        Debug.Log("Dash is enabled: " + dashEnabled);   
     }
+   
 }
