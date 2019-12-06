@@ -6,6 +6,7 @@ public class PlayerDash : MonoBehaviour
 {
     SpawnarBolhas spawnarBolha;
 
+    EfeitoCorridaPlayer efeitoCorridaPlayer;
 
     Rigidbody2D righ;
     public int dashSpeed;
@@ -27,6 +28,7 @@ public class PlayerDash : MonoBehaviour
     {
         spawnarBolha = GetComponent<SpawnarBolhas>();
         righ = GetComponent<Rigidbody2D>();
+        efeitoCorridaPlayer = GetComponent<EfeitoCorridaPlayer>();
     }
 
     private void Start()
@@ -77,6 +79,8 @@ public class PlayerDash : MonoBehaviour
         StartCoroutine("DashReload");
 
         spawnarBolha.SpawnarBolha();
+
+        GameObject ro = Instantiate(efeitoCorridaPlayer.EfeitoCorrer, transform.position, transform.rotation);
     }
 
     IEnumerator DashReload() //o IEnumerator espera um certo tempo para executar uma coisa

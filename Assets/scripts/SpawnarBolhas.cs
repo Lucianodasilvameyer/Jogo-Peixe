@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnarBolhas : MonoBehaviour
 {
-   
+    
 
     
 
@@ -30,13 +30,13 @@ public class SpawnarBolhas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         
     }
     public void SpawnarBolha()
     {
        
-        Vector2 inipos = bolhas.transform.position;
+       /* Vector2 inipos = bolhas.transform.position;
 
         Vector2 position_ = inipos;
 
@@ -53,7 +53,7 @@ public class SpawnarBolhas : MonoBehaviour
 
 
 
-        GameObject go = Instantiate(bolhasPrefab, position, Quaternion.identity);
+        GameObject go = Instantiate(bolhasPrefab, position, Quaternion.identity);*/ 
 
     }
    
