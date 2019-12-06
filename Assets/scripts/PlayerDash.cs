@@ -80,7 +80,7 @@ public class PlayerDash : MonoBehaviour
 
         spawnarBolha.SpawnarBolha();
 
-        GameObject ro = Instantiate(efeitoCorridaPlayer.EfeitoCorrer, transform.position, transform.rotation);
+        //GameObject ro = Instantiate(efeitoCorridaPlayer.EfeitoCorrer, transform.position, transform.rotation);
     }
 
     IEnumerator DashReload() //o IEnumerator espera um certo tempo para executar uma coisa

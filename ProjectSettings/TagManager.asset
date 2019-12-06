@@ -111,3 +111,6 @@ TagManager:
   - name: Bolhas
     uniqueID: 889215681
     locked: 0
+  - name: ghost
+    uniqueID: 834241547
+    locked: 0

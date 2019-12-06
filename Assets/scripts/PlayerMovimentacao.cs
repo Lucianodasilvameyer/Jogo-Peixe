@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMovimentacao : MonoBehaviour
 {
-    public int speed;
-    Rigidbody2D righ;
+    public float speed;
+    public Rigidbody2D righ;
+    public Animator animator;
     // Start is called before the first frame update
 
     private void Awake()
@@ -26,5 +27,13 @@ public class PlayerMovimentacao : MonoBehaviour
     {
         Vector2 Position = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         righ.velocity = Position * speed;
+    }
+    void get_Input()
+    {
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            //righ.velocity = new Vector2(speed, righ.velocity);
+            //animator.SetBool();
+        }
     }
 }
