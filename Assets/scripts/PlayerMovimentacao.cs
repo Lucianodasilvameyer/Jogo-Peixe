@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class PlayerMovimentacao : MonoBehaviour
 {
+    
+
+  
+
+    public Rigidbody2D rigidbody2D_;
     public float speed;
-    public Rigidbody2D righ;
     public Animator animator;
     // Start is called before the first frame update
 
     private void Awake()
     {
-        righ = GetComponent<Rigidbody2D>();
+        rigidbody2D_ = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
@@ -21,19 +25,72 @@ public class PlayerMovimentacao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //get_Input();
     }
     private void FixedUpdate()
     {
         Vector2 Position = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        righ.velocity = Position * speed;
+        rigidbody2D_.velocity = Position * speed;
     }
-    void get_Input()
-    {
+    //void get_Input()
+    /*{
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //righ.velocity = new Vector2(speed, righ.velocity);
-            //animator.SetBool();
+            rigidbody2D_.velocity = new Vector2(speed, rigidbody2D_.velocity.x);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector3(1, 1, 1);
+
+
+
         }
-    }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rigidbody2D_.velocity = new Vector2(-speed, rigidbody2D_.velocity.x);
+            animator.SetBool("Moving", true);
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            rigidbody2D_.velocity = new Vector2(0, 0);
+            animator.SetBool("Moving", false);
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            // righ.velocity = new Vector2(speed, righ.velocity);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector2(0, 1);
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            //righ.velocity = new Vector2(speed, righ.velocity);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector2(0, -1);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+        {
+            //righ.velocity = new Vector2(speed, righ.velocity);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector2(1, 1);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
+        {
+            //righ.velocity = new Vector2(speed, righ.velocity);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector2(1, -1);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+        {
+            //righ.velocity = new Vector2(-speed, righ.velocity);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector2(-1, 1);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow))
+        {
+            //righ.velocity = new Vector2(-speed, righ.velocity);
+            animator.SetBool("GhostFadeOut", true);
+            transform.localScale = new Vector2(-1, -1);
+        }
+
+    }*/
+    
 }

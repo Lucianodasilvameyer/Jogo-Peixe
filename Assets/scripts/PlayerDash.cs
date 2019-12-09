@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    
+
+    
+
     SpawnarBolhas spawnarBolha;
 
     EfeitoCorridaPlayer efeitoCorridaPlayer;
@@ -51,16 +55,15 @@ public class PlayerDash : MonoBehaviour
         }
         */
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            
-            
-            if (dashes > 0 && dashEnabled)
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                
-                Dash(x, y);
+
+                if (dashes > 0 && dashEnabled)
+                {
+                    Dash(x, y);
+                }
             }
-        }
     }
 
     public void Dash(float x, float y)
