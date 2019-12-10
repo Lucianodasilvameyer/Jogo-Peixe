@@ -9,6 +9,8 @@ public class ReutilizarChao : MonoBehaviour
     [SerializeField]
     Vector2 proximaPosicaoChao;
 
+
+
     
 
     

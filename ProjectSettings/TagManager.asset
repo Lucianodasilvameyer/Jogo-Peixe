@@ -17,6 +17,8 @@ TagManager:
   - Teto
   - RedeDepesca
   - ColisorDeTras
+  - primeiroColisorDetraz
+  - ColisorDaFrente
   layers:
   - Default
   - TransparentFX
