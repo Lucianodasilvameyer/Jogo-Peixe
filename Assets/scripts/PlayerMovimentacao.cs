@@ -15,6 +15,7 @@ public class PlayerMovimentacao : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rigidbody2D_ = GetComponent<Rigidbody2D>();
     }
     void Start()
@@ -31,6 +32,15 @@ public class PlayerMovimentacao : MonoBehaviour
     {
         Vector2 Position = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rigidbody2D_.velocity = Position * speed;
+
+       if(Position.x > 0 || Position.x < 0 || Position.y > 0 || Position.y < 0)
+       {
+            animator.SetBool("Walking",true);
+       }
+       else
+       {
+            animator.SetBool("Walking", false);
+       }
     }
     //void get_Input()
     /*{

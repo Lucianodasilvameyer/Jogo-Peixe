@@ -120,3 +120,9 @@ TagManager:
   - name: PiranhaNadando2
     uniqueID: 1911409875
     locked: 0
+  - name: AlgaA
+    uniqueID: 1272781915
+    locked: 0
+  - name: AlgaB
+    uniqueID: 132293649
+    locked: 0
