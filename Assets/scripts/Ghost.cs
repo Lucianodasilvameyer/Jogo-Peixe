@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public bool makeGhost = false;
+   
+
+
 
     public Transform Player_;
 
     public int distanciaDoGhost;
 
     public float ghostDelay;
-    private float ghostDelaySeconds;
+    public float ghostDelaySeconds;
     public GameObject ghost;
 
     private float spawnFantasmaInicial1;
@@ -34,6 +36,11 @@ public class Ghost : MonoBehaviour
 
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        
+    }
+
     void Start()
     {
         ghostDelaySeconds = ghostDelay;  
@@ -42,48 +49,38 @@ public class Ghost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*Vector2 inipos = Player_.transform.position;
+        Vector2 inipos = Player_.transform.position;
         Vector2 Position = inipos;
-        Position.x += distanciaDoGhost;
-        Position.y += distanciaDoGhost;*/
-
-
-        if (makeGhost)
+        
+        if(Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.RightArrow))
         {
-            if (ghostDelaySeconds > 0)
-            {
-                ghostDelaySeconds -= Time.deltaTime;
-            }
-            else
-            {
-                GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
-                ghostDelaySeconds = ghostDelay;
-            }
+            Position.x = Vector2(3, 0);
         }
-       /*if(Time.time>=spawnFantasmaInicial1+spawnFantasmaFinal1 && carregar==0 && Input.GetKey(KeyCode.Space))
+
+       if(Time.time>=spawnFantasmaInicial1+spawnFantasmaFinal1 && carregar==0 && Input.GetKey(KeyCode.Space))
        {
             spawnFantasmaInicial1 = Time.time;
             carregar++;
-            GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
+            GameObject currentGhost = Instantiate(ghost, Position, Quaternion.identity);
        }
        if(Time.time>=spawnFantasmaInicial2+spawnFantasmaFinal2 && carregar == 1)
        {
             spawnFantasmaInicial2 = Time.time;
             carregar++;
-            GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
+            GameObject currentGhost = Instantiate(ghost, Position, Quaternion.identity);
        }
        if(Time.time>=spawnFantasmaInicial3+ spawnFantasmaFinal3 && carregar == 2)
        {
             spawnFantasmaInicial3 = Time.time;
             carregar++;
-            GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
+            GameObject currentGhost = Instantiate(ghost, Position, Quaternion.identity);
        }
        if (Time.time >= spawnFantasmaInicial4 + spawnFantasmaFinal4 && carregar == 3)
        {
             spawnFantasmaInicial4 = Time.time;
             carregar = 0;
-            GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
-       }*/
+            GameObject currentGhost = Instantiate(ghost, Position, Quaternion.identity);
+       }
 
 
     }

@@ -16,7 +16,7 @@ public class AtacandoPeixes : MonoBehaviour
     {
         habilidadesGeraisInimigo = GetComponent<HabilidadesGeraisInimigo>();
 
-        HGP_ref = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>();
+        HGP_ref = GameObject.Find("piranhaA").GetComponent<HabilidadesGeraisPlayer>();
     }
 
     // Update is called once per frame

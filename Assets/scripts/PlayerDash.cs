@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    
 
+    Ghost ghost;
     
 
     SpawnarBolhas spawnarBolha;
@@ -19,12 +19,12 @@ public class PlayerDash : MonoBehaviour
     //[SerializeField]
     //CoolDownDoubleDash coolDownDoubleDash;
 
-    [SerializeField] int dashes;                    //Contador de dashes
+    public int dashes;                    //Contador de dashes
     [SerializeField] float timer = 0;               //Variavel que funcionará como cronometro
     [SerializeField] float dashCooldown = 6f;       //Cooldown da habilidade de dash
     [SerializeField] float dashDelay = 0.35f;       //Intervalo entre o double dash
 
-    [SerializeField] bool dashEnabled = true;
+    public bool dashEnabled = true;
 
     // Start is called before the first frame update
 
@@ -33,6 +33,8 @@ public class PlayerDash : MonoBehaviour
         spawnarBolha = GetComponent<SpawnarBolhas>();
         righ = GetComponent<Rigidbody2D>();
         efeitoCorridaPlayer = GetComponent<EfeitoCorridaPlayer>();
+        ghost = GetComponent<Ghost>();
+
     }
 
     private void Start()
@@ -46,24 +48,28 @@ public class PlayerDash : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        /*
-        if (Input.GetKeyDown(KeyCode.Space) && coolDownDoubleDash.recarregar == false)
-        {
-            Dash(x, y);
-            //game.TempoDashInicial = Time.time;
-            //game.recarregar = true;
-        }
-        */
+       
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
 
+           if (dashes > 0 && dashEnabled)
+           {
+                Dash(x, y);
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+               if (ghost.ghostDelaySeconds > 0)
+               {
+                    ghost.ghostDelaySeconds -= Time.deltaTime; 
+               }
+               else
+               {
+                    GameObject currentGhost = Instantiate(ghost.ghost, transform.position, transform.rotation);
+                    ghost.ghostDelaySeconds = ghost.ghostDelay;
+                    
+               }
 
-                if (dashes > 0 && dashEnabled)
-                {
-                    Dash(x, y);
-                }
-            }
+                   
+           }
+       }
     }
 
     public void Dash(float x, float y)
