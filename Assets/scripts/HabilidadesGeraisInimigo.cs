@@ -34,6 +34,7 @@ public class HabilidadesGeraisInimigo : MonoBehaviour
     {
         habilidadesGeraisPlayer = GameObject.Find("Traira").GetComponent<HabilidadesGeraisPlayer>(); 
         //DefinirAlvo();
+        
     }
 
     // Update is called once per frame

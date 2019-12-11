@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+    public bool makeGhost = false;
+
     public Transform Player_;
 
     public int distanciaDoGhost;
@@ -40,21 +42,25 @@ public class Ghost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 inipos = Player_.transform.position;
+        /*Vector2 inipos = Player_.transform.position;
         Vector2 Position = inipos;
-        Position.x -= distanciaDoGhost;
-        Position.y -= distanciaDoGhost;
+        Position.x += distanciaDoGhost;
+        Position.y += distanciaDoGhost;*/
 
 
-       if (ghostDelaySeconds > 0)
-       {
-            ghostDelaySeconds -= Time.deltaTime;
-       }
-       else
-       {
-            ghostDelaySeconds = ghostDelay;
-       }
-       if(Time.time>=spawnFantasmaInicial1+spawnFantasmaFinal1 && carregar==0 && Input.GetKey(KeyCode.Space))
+        if (makeGhost)
+        {
+            if (ghostDelaySeconds > 0)
+            {
+                ghostDelaySeconds -= Time.deltaTime;
+            }
+            else
+            {
+                GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
+                ghostDelaySeconds = ghostDelay;
+            }
+        }
+       /*if(Time.time>=spawnFantasmaInicial1+spawnFantasmaFinal1 && carregar==0 && Input.GetKey(KeyCode.Space))
        {
             spawnFantasmaInicial1 = Time.time;
             carregar++;
@@ -77,7 +83,7 @@ public class Ghost : MonoBehaviour
             spawnFantasmaInicial4 = Time.time;
             carregar = 0;
             GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
-       }
+       }*/
 
 
     }
