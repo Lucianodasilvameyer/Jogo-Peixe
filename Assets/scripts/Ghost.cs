@@ -54,7 +54,7 @@ public class Ghost : MonoBehaviour
         
         if(Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.RightArrow))
         {
-            Position.x = Vector2(3, 0);
+            //Position.x = Vector2(3, 0);
         }
 
        if(Time.time>=spawnFantasmaInicial1+spawnFantasmaFinal1 && carregar==0 && Input.GetKey(KeyCode.Space))

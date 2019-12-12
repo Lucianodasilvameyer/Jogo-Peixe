@@ -191,79 +191,82 @@ public class SpawnInimigo : MonoBehaviour
 
                 Vector2 position2 = initialPos2;
                 position.y += Random.Range(-1,5);
-              
-                if (ListInimigos.Count > 0)
+
+        for (int i = 0; i < quantidadeIinimigos; i++)
+        {
+
+            if (ListInimigos.Count > 0)
+            {
+                if (typeof(Y) == typeof(Isca))
                 {
-                    if (typeof(Y) == typeof(Isca))
+                    if (ListInimigos.OfType<Isca>().Any())
                     {
-                       if (ListInimigos.OfType<Isca>().Any())
-                       {
-                           int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(Isca));
+                        int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(Isca));
 
-                           GameObject Isca  = ListInimigos[possicao];
-                           ListInimigos.RemoveAt(possicao);
-
-                          
+                        GameObject Isca = ListInimigos[possicao];
+                        ListInimigos.RemoveAt(possicao);
 
 
-                           Isca.transform.position = position;
-                           Isca.SetActive(true);
-                           
 
-                       }
-                    }
-                    else if (typeof(Y) == typeof(RedePesca))
-                    {
-                        if (ListInimigos.OfType<RedePesca>().Any())
-                        {
-                           int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(RedePesca));
 
-                           GameObject RedePesca = ListInimigos[possicao];
+                        Isca.transform.position = position;
+                        Isca.SetActive(true);
 
-                           ListInimigos.RemoveAt(possicao);
 
-                           
-
-                           RedePesca.transform.position = position;
-                           RedePesca.SetActive(true);
-                          
-                             
-                        }
-                    }
-                    else if (typeof(Y) == typeof(Tubarao))
-                    {
-                         if (ListInimigos.OfType<Tubarao>().Any())
-                         {
-                              int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(Tubarao));
-
-                              GameObject tubarao = ListInimigos[possicao];
-                              ListInimigos.RemoveAt(possicao);
-
-                              
-
-                              tubarao.transform.position = position;
-                              tubarao.SetActive(true);
-                                
-                         } 
                     }
                 }
-                else
+                else if (typeof(Y) == typeof(RedePesca))
                 {
-                    if (typeof(Y) == typeof(Isca))
+                    if (ListInimigos.OfType<RedePesca>().Any())
                     {
-                        Isca GameObject  = Instantiate(iscaPrefab, position, Quaternion.identity).GetComponent<Isca>();
-                    }
-                    if (typeof(Y) == typeof(Tubarao))
-                    {
-                        Tubarao GameObject = Instantiate(tubaraoPrefab, position, Quaternion.identity).GetComponent<Tubarao>();    
-                    }
-                    if (typeof(Y) == typeof(RedePesca))
-                    {
-                        RedePesca GameObject = Instantiate(redeDePescaPrefab, position, Quaternion.identity).GetComponent<RedePesca>();
+                        int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(RedePesca));
+
+                        GameObject RedePesca = ListInimigos[possicao];
+
+                        ListInimigos.RemoveAt(possicao);
+
+
+
+                        RedePesca.transform.position = position;
+                        RedePesca.SetActive(true);
+
+
                     }
                 }
-                
+                else if (typeof(Y) == typeof(Tubarao))
+                {
+                    if (ListInimigos.OfType<Tubarao>().Any())
+                    {
+                        int possicao = ListInimigos.FindLastIndex(x => x.GetType() == typeof(Tubarao));
 
+                        GameObject tubarao = ListInimigos[possicao];
+                        ListInimigos.RemoveAt(possicao);
+
+
+
+                        tubarao.transform.position = position;
+                        tubarao.SetActive(true);
+
+                    }
+                }
+            }
+            else
+            {
+                if (typeof(Y) == typeof(Isca))
+                {
+                    Isca GameObject = Instantiate(iscaPrefab, position, Quaternion.identity).GetComponent<Isca>();
+                }
+                if (typeof(Y) == typeof(Tubarao))
+                {
+                    Tubarao GameObject = Instantiate(tubaraoPrefab, position, Quaternion.identity).GetComponent<Tubarao>();
+                }
+                if (typeof(Y) == typeof(RedePesca))
+                {
+                    RedePesca GameObject = Instantiate(redeDePescaPrefab, position, Quaternion.identity).GetComponent<RedePesca>();
+                }
+            }
+
+        }
                 
             
         
@@ -287,6 +290,7 @@ public class SpawnInimigo : MonoBehaviour
 
         Vector2 spawnLocation = new Vector2(LineStart.position.x + (xrange * UnityEngine.Random.value), LineStart.position.y + (yrange * UnityEngine.Random.value));
     }*/
+    public
   
    
 
