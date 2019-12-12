@@ -3012,7 +3012,7 @@ MonoBehaviour:
   dashes: 0
   timer: 0
   dashCooldown: 4
-  dashDelay: 0
+  dashDelay: 2
   dashEnabled: 1
 --- !u!1 &1241074309 stripped
 GameObject:
@@ -5107,6 +5107,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 822688687111050680, guid: 2e055670cd892ef47846fba21a934158,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1340118626260223351}
+    - target: {fileID: 822688687111050680, guid: 2e055670cd892ef47846fba21a934158,
+        type: 3}
+      propertyPath: tempoParaComer
+      value: 
+      objectReference: {fileID: 274100612}
     - target: {fileID: 822688687111050687, guid: 2e055670cd892ef47846fba21a934158,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5172,16 +5182,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 822688687111050680, guid: 2e055670cd892ef47846fba21a934158,
-        type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 1340118626260223351}
-    - target: {fileID: 822688687111050680, guid: 2e055670cd892ef47846fba21a934158,
-        type: 3}
-      propertyPath: tempoParaComer
-      value: 
-      objectReference: {fileID: 274100612}
     - target: {fileID: 822688688606798683, guid: 2e055670cd892ef47846fba21a934158,
         type: 3}
       propertyPath: speed

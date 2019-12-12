@@ -126,7 +126,7 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 position2 = initialPosLinha;
 
             
-            SpawnarInimigos<Isca>(2, 6, Random.Range(-1, 5), position, position2);
+            SpawnarInimigos<Isca>(1, /*6, Random.Range(-1, 5),*/ position, position2);
 
             IscaIntervaloSpawn = 0;
         }
@@ -148,7 +148,7 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 position2 = initialPosLinha;
             
 
-            SpawnarInimigos<Tubarao>(5, 6, Random.Range(-1, 5), position, position2);
+            SpawnarInimigos<Tubarao>(5, /*6, Random.Range(-1, 5),*/ position, position2);
 
             TubaraoIntervaloSpawn = 0;
         }
@@ -173,12 +173,12 @@ public class SpawnInimigo : MonoBehaviour
 
 
 
-            SpawnarInimigos<RedePesca>(2, 6, Random.Range(-1, 5), position, position2);
+            SpawnarInimigos<RedePesca>(1, /*6, Random.Range(-1, 5)*/ position, position2);
 
             RedePescaIntervaloSpawn = 0;
         }
     }
-    public void SpawnarInimigos<Y>(int quantidadeIinimigos, float distanceMax, float heightMax, Vector2 initialPos, Vector2 initialPos2)
+    public void SpawnarInimigos<Y>(int quantidadeIinimigos, /*float distanceMax, float heightMax*/ Vector2 initialPos, Vector2 initialPos2)
     {
        
 
@@ -186,7 +186,7 @@ public class SpawnInimigo : MonoBehaviour
             
               
                 Vector2 position = initialPos;
-                position.x += distanceMax;                                                           //Random.Range(distanceMin, distanceMax);
+                position.x += Random.Range(5, 6);        /*distanceMax;*/                                                           //Random.Range(distanceMin, distanceMax);
 
 
                 Vector2 position2 = initialPos2;
@@ -290,7 +290,7 @@ public class SpawnInimigo : MonoBehaviour
 
         Vector2 spawnLocation = new Vector2(LineStart.position.x + (xrange * UnityEngine.Random.value), LineStart.position.y + (yrange * UnityEngine.Random.value));
     }*/
-    public
+    
   
    
 
