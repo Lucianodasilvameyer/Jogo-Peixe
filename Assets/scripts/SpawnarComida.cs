@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
 
 public class SpawnarComida : MonoBehaviour
 {
+    Comida comida;
+
     [SerializeField]
     private float distanciaComidaPlayer;
 
     [SerializeField]
-    Transform player;
+    private Transform Player_ref;
 
     [SerializeField]
-    float nivelDoChao;
+    private Transform ColisorDaFrente;
+
+ 
 
     public GameObject comidaPrefab;
 
@@ -21,8 +27,10 @@ public class SpawnarComida : MonoBehaviour
     private float timerSpawnComidaMax;
 
     // Start is called before the first frame update
-    
-
+    void Awake()
+    {
+        comida = GameObject.Find("comidaDePeixe").GetComponent<Comida>();    
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,22 +38,44 @@ public class SpawnarComida : MonoBehaviour
         {
             timerSpawnComida = Time.time;
 
-            Vector2 position = player.transform.position;
+            Vector2 inipos = Player_ref.transform.position;
+            Vector2 Position = inipos;
+            Position.x = distanciaComidaPlayer;
 
-            position.x += distanciaComidaPlayer;
-            position.y = nivelDoChao;
+            Vector2 iniposColisor = ColisorDaFrente.transform.position;
+            Vector2 Position2 = iniposColisor;
 
-            spawnarComida(Random.Range(1, 2), 1, 5, Random.Range(0, 5), position);
+            SpawnComida(1, Position, Position2);
+            
+
+        
         } 
     }
-    public void spawnarComida(int quantidadeComida, int distanciaMin,int distanciaMax,int alturaMax, Vector2 position)
+    public void SpawnComida(int quantidadeComida, Vector2 inipos1, Vector2 inipos2)
     {
-        for(int i=0; i < quantidadeComida; i++)
-        {
-            position.x +=i* Random.Range(distanciaMin, distanciaMax);//o position.x e o position.y daqui, são parametros e não argumentos?
-            position.y += Random.Range(0, alturaMax);
+        Vector2 Position = inipos1;
+        Position.x += 5;
 
-            GameObject ra = Instantiate(comidaPrefab, position, Quaternion.identity);
+        Vector2 Position2 = inipos2;
+        Position.y += Random.Range(-1, 5);
+
+        if (comida.ListComida.OfType<Comida>().Any())
+        {
+            int lugar = comida.ListComida.FindLastIndex(x => x.GetType() == typeof(Comida));
+            GameObject comidaAchada = comida.ListComida[lugar];
+            comida.ListComida.RemoveAt(lugar);
+
+            comidaAchada.transform.position = Position;
+            comidaAchada.SetActive(true);
+
+        }
+        else
+        {
+            GameObject Ve = Instantiate(comidaPrefab, Position, Quaternion.identity);
         }
     }
+   
+    
+
+    
 }

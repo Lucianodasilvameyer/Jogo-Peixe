@@ -49,7 +49,7 @@ public class PlayerDash : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
        
-       if (Input.GetKeyDown(KeyCode.Space))
+       if (Input.GetKey(KeyCode.Space))
        {
 
            if (dashes > 0 && dashEnabled)

@@ -148,7 +148,7 @@ public class SpawnInimigo : MonoBehaviour
             Vector2 position2 = initialPosLinha;
             
 
-            SpawnarInimigos<Tubarao>(5, /*6, Random.Range(-1, 5),*/ position, position2);
+            SpawnarInimigos<Tubarao>(1, /*6, Random.Range(-1, 5),*/ position, position2);
 
             TubaraoIntervaloSpawn = 0;
         }
@@ -190,7 +190,7 @@ public class SpawnInimigo : MonoBehaviour
 
 
                 Vector2 position2 = initialPos2;
-                position.y += Random.Range(-1,5);
+                position2.y += Random.Range(-1,5);
 
         for (int i = 0; i < quantidadeIinimigos; i++)
         {

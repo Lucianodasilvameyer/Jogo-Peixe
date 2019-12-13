@@ -13,6 +13,8 @@ public class HabilidadesGeraisPlayer : MonoBehaviour
     [SerializeField]
     TempoParaComer tempoParaComer;
 
+    public int recuperarVida;
+
     Interface interface_ref;
     // Start is called before the first frame update
     void Awake()
@@ -46,5 +48,9 @@ public class HabilidadesGeraisPlayer : MonoBehaviour
     public void Damage(int dano)
     {
         interface_ref.HP -= dano;
+    }
+    public void GanharVida(int vida)
+    {
+        interface_ref.HP += vida;
     }
 }
